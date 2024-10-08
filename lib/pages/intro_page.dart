@@ -58,14 +58,21 @@ class IntroPage extends StatelessWidget {
                 padding: const EdgeInsets.all(100.0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                    backgroundColor: Colors.orange,
                     padding: EdgeInsets.symmetric(
                       horizontal: 50,
                       vertical: 20,
                     ),
                     textStyle: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      ),
+                    );
+                  },
                   child: Text('Dive In'),
                 ),
               ),

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:e_commmerce/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -60,8 +60,8 @@ class IntroPage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
                     padding: EdgeInsets.symmetric(
-                      horizontal: 50,
-                      vertical: 20,
+                      horizontal: 40,
+                      vertical: 25,
                     ),
                     textStyle: TextStyle(fontSize: 20),
                   ),
@@ -73,7 +73,14 @@ class IntroPage extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text('Dive In'),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('Dive In'),
+                      SizedBox(width: 15),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
                 ),
               ),
             )

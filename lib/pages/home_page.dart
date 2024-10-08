@@ -1,6 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:e_commmerce/components/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+
+import 'cart_page.dart';
+import 'shop_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,13 +26,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   //pages to disply
-  // final List<Widget> _pages = [
-  //   //shop page
-  //   const ShopPage(),
+  final List<Widget> _pages = [
+    //shop page
+    const ShopPage(),
 
-  //   const CartPage(),
-
-  // ]
+    //Cart page
+    const CartPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +41,50 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: MyBottomNavBar(
         onTabChange: (index) => navigationBottomBar(index),
       ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Builder(builder: (context) {
+          return IconButton(
+            icon: Icon(
+              Icons.menu,
+            ),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        }),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.grey,
+        child: Column(
+          children: [
+            //logo
+            DrawerHeader(
+              child: Image.asset(
+                'lib/images/Logo.png',
+                color: Colors.black,
+              ),
+            ),
+
+            Divider(
+              color: Colors.grey[800],
+            ),
+
+            //other pages
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: ListTile(
+                leading: Icon(Icons.home),
+                title: Text(
+                  'Home',
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: _pages[_selectedIndex],
     );
   }
 }

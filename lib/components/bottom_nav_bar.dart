@@ -11,7 +11,7 @@ class MyBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: GNav(
-        color: Colors.grey,
+        color: Colors.grey[700],
         // backgroundColor: Colors.white,
         tabActiveBorder: Border.all(color: Colors.white, width: 1),
         tabBackgroundColor: Colors.white,

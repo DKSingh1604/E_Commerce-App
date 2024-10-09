@@ -58,26 +58,50 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         backgroundColor: Colors.grey,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            //logo
-            DrawerHeader(
-              child: Image.asset(
-                'lib/images/Logo.png',
-                color: Colors.black,
-              ),
-            ),
+            Column(
+              children: [
+                //logo
+                DrawerHeader(
+                  child: Image.asset(
+                    'lib/images/Logo.png',
+                    color: Colors.black,
+                  ),
+                ),
 
-            Divider(
-              color: Colors.grey[800],
-            ),
+                Divider(
+                  color: Colors.grey[800],
+                ),
 
-            //other pages
+                //other pages
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ListTile(
+                    leading: Icon(Icons.home),
+                    title: Text(
+                      'Home',
+                    ),
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ListTile(
+                    leading: Icon(Icons.info),
+                    title: Text(
+                      'About',
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(10.0),
               child: ListTile(
-                leading: Icon(Icons.home),
+                leading: Icon(Icons.logout),
                 title: Text(
-                  'Home',
+                  'Logout',
                 ),
               ),
             ),

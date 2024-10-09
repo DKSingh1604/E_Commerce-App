@@ -2,7 +2,6 @@
 
 import 'package:e_commmerce/components/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 import 'cart_page.dart';
 import 'shop_page.dart';

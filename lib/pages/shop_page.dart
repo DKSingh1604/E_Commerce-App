@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:e_commmerce/components/shoe_tile.dart';
+import 'package:e_commmerce/models/shoe.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -68,6 +70,34 @@ class _ShopPageState extends State<ShopPage> {
                 ),
               ),
             ],
+          ),
+        ),
+
+        const SizedBox(height: 10),
+
+        Expanded(
+          child: ListView.builder(
+            itemCount: 4,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              //create shoe
+              Shoe shoe = Shoe(
+                name: 'Limited Edition',
+                price: '100',
+                imagePath: 'lib/images/new1.png',
+                description: 'Nike Air Max 90',
+              );
+              return ShoeTile(
+                shoe: shoe,
+              );
+            },
+          ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.all(10),
+          child: Divider(
+            color: Color.fromARGB(255, 70, 186, 224),
           ),
         ),
       ],

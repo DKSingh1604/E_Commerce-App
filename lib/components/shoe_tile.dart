@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,7 +59,7 @@ class ShoeTile extends StatelessWidget {
 
                       //price
                       Text(
-                        shoe.price,
+                        '\$' + shoe.price,
                         style: GoogleFonts.aBeeZee(
                           fontSize: 16,
                         ),
@@ -69,7 +69,7 @@ class ShoeTile extends StatelessWidget {
 
                   //plus button
                   GestureDetector(
-                    onTap: onTap ?? () {},
+                    onTap: onTap,
                     child: Container(
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:e_commmerce/models/cart.dart';
 import 'package:e_commmerce/models/shoe.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +7,10 @@ import 'package:provider/provider.dart';
 
 class CartItem extends StatefulWidget {
   final Shoe shoe;
-  const CartItem({super.key, required this.shoe});
+  const CartItem({
+    super.key,
+    required this.shoe,
+  });
 
   @override
   State<CartItem> createState() => _CartItemState();
@@ -26,21 +31,20 @@ class _CartItemState extends State<CartItem> {
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          ListTile(
-            leading: Image.asset(widget.shoe.imagePath),
-            title: Text(widget.shoe.name),
-            subtitle: Text(widget.shoe.price.toString()),
-            trailing: IconButton(
-                icon: Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                ),
-                onPressed: removeItemFromCart),
+      child: ListTile(
+        leading: SizedBox(
+          width: 50, // Set a specific width
+          child: Image.asset(widget.shoe.imagePath),
+        ),
+        title: Text(widget.shoe.name),
+        subtitle: Text(widget.shoe.price.toString()),
+        trailing: IconButton(
+          icon: Icon(
+            Icons.delete,
+            color: Colors.red,
           ),
-        ],
+          onPressed: removeItemFromCart,
+        ),
       ),
     );
   }

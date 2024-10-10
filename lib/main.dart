@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:e_commmerce/models/cart.dart';
 import 'package:flutter/material.dart';
 import 'pages/intro_page.dart';
 import 'package:provider/provider.dart';

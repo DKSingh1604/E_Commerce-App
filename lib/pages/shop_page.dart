@@ -15,6 +15,30 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
+  //add shoe to cart
+  void addShoeToCart(Shoe shoe) {
+    Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
+
+    //alert the user after adding to cart
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Color.fromARGB(255, 70, 186, 224),
+        title: Text(
+          'Successfully added to cart',
+          style: TextStyle(
+              color: Colors.green[700],
+              fontSize: 18,
+              fontWeight: FontWeight.bold),
+        ),
+        content: Padding(
+          padding: const EdgeInsets.only(left: 58),
+          child: Text('Check your cart'),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<Cart>(
@@ -85,13 +109,10 @@ class _ShopPageState extends State<ShopPage> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 //create shoe
-                Shoe shoe = Shoe(
-                  name: 'Limited Edition',
-                  price: '100',
-                  imagePath: 'lib/images/new1.png',
-                  description: 'Nike Air Max 90',
-                );
+                Shoe shoe = value.getShoeList()[index];
+                //RETURN THE SHOE
                 return ShoeTile(
+                  onTap: () => addShoeToCart(shoe),
                   shoe: shoe,
                 );
               },
@@ -99,7 +120,7 @@ class _ShopPageState extends State<ShopPage> {
           ),
 
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(5),
             child: Divider(
               color: Color.fromARGB(255, 70, 186, 224),
             ),

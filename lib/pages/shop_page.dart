@@ -53,10 +53,17 @@ class _ShopPageState extends State<ShopPage> {
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Search'),
-                Icon(Icons.search),
+                Text(
+                  'Search',
+                  style: TextStyle(
+                      fontSize: 13,
+                      color:
+                          const Color.fromARGB(255, 73, 72, 72)), // Hint style
+                ),
+                Spacer(),
+                Icon(Icons.search,
+                    color: const Color.fromARGB(255, 73, 73, 73)),
               ],
             ),
           ),
